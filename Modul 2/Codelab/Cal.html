@@ -69,18 +69,27 @@
     </div>
 
     <script>
-        function calculate() {
-            var num1 = parseFloat(document.getElementById('num1').value);
-            var num2 = parseFloat(document.getElementById('num2').value);
-            var result = num1 + num2;
-            document.getElementById('result').innerText = 'Hasil: ' + result;
+    function calculate() {
+        var num1 = document.getElementById('num1').value;
+        var num2 = document.getElementById('num2').value;
+
+        // Periksa jika salah satu input kosong
+        if (num1 === '' || num2 === '') {
+            alert('Kedua bilangan harus diisi terlebih dahulu!');
+            return; // Menghentikan eksekusi jika ada input kosong
         }
 
-        function reset() {
-            document.getElementById('num1').value = '';
-            document.getElementById('num2').value = '';
-            document.getElementById('result').innerText = 'Hasil:';
-        }
-    </script>
+        // Lakukan operasi penjumlahan jika semua input terisi
+        var result = parseFloat(num1) + parseFloat(num2);
+        document.getElementById('result').innerText = 'Hasil: ' + result;
+    }
+
+    function reset() {
+        document.getElementById('num1').value = '';
+        document.getElementById('num2').value = '';
+        document.getElementById('result').innerText = 'Hasil:';
+    }
+</script>
+
 </body>
 </html>
